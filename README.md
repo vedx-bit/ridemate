@@ -1,114 +1,81 @@
-# RideMate
+# 🚗 RideMate — Smart College Ride-Sharing Platform
 
-RideMate is a college carpool/ride-sharing web application built with Flask and PostgreSQL.
+**Share the ride. Split the cost. Connect with your campus.**
 
-## Features
+RideMate is a smart college carpooling web application built with Flask and PostgreSQL that connects students who need a ride with students who have available seats. It makes daily college commuting easier, more affordable, and more convenient through a simple and secure platform.
 
-- Student registration and login
-- Driver and Passenger roles
-- Driver dashboard
-- Offer a ride
-- Find available rides
-- Book rides
-- Driver booking accept/reject
-- Booking status
-- Notifications
-- User profile
-- CSRF protection
-- Password hashing
-- PostgreSQL production database
-- SQLite local-development fallback
-- `/health` production health endpoint
-- Gunicorn production server
-- Render deployment configuration
+## ✨ Key Features
 
-## Technology
+- 🎓 **Student Authentication** — Secure registration and login.
+- 🚘 **Driver & Passenger Roles** — Dedicated features for both drivers and passengers.
+- 🛣️ **Offer a Ride** — Drivers can publish rides and available seats.
+- 🔍 **Find Rides** — Discover available rides for your commute.
+- 📅 **Ride Booking** — Passengers can request to book available rides.
+- ✅ **Booking Management** — Drivers can accept or reject booking requests.
+- 🔔 **Notifications & Status** — Keep track of booking updates.
+- 👤 **User Profiles** — Manage personal account information.
+- 🔐 **Security First** — Password hashing, CSRF protection, and secure session cookies.
+- ⚡ **Production Ready** — PostgreSQL support, Gunicorn server, and health-check endpoint.
 
-- Python
-- Flask
-- PostgreSQL / Supabase
-- SQLite for local development
-- Gunicorn
-- HTML/CSS/JavaScript
+## 🛠️ Tech Stack
 
-## Project structure
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Flask | Web application framework |
+| PostgreSQL / Supabase | Production database |
+| SQLite | Local development database |
+| HTML, CSS & JavaScript | Frontend |
+| Gunicorn | Production application server |
+| Render | Web application deployment |
 
-```text
-app.py
-database.py
-helpers.py
-requirements.txt
-render.yaml
-seed_demo.py
-database/
-routes/
-templates/
-static/
-uploads/
+## 🚀 Getting Started
+
+**1. Clone the repository**
+```bash
+git clone <YOUR_REPOSITORY_URL>
+cd RideMate
 ```
 
-## Run locally
-
-Create and activate a virtual environment, then:
-
+**2. Install dependencies**
 ```bash
 pip install -r requirements.txt
+```
+
+**3. Start the application**
+```bash
 python app.py
 ```
 
-Open:
+**4. Open in your browser**
 
-```text
 http://127.0.0.1:10000
-```
 
-Without `DATABASE_URL`, the application uses local SQLite.
+The application uses SQLite for local development when `DATABASE_URL` is not configured.
 
-## Production deployment
+## ☁️ Deployment
 
-Recommended free architecture:
+RideMate can be deployed using:
 
-```text
-GitHub -> Render Free Web Service -> Supabase PostgreSQL
-```
+- **GitHub** — Source code management
+- **Render** — Web application hosting
+- **Supabase** — Managed PostgreSQL database
 
-Set these Render environment variables:
+Configure the required environment variables and follow `DEPLOYMENT.md` for production deployment instructions.
 
-```text
-DATABASE_URL=<Supabase PostgreSQL pooler connection string>
-SECRET_KEY=<long random secret>
-PYTHON_VERSION=3.12.8
-```
+## 🔒 Security & Reliability
 
-Render commands:
+- Secure password hashing
+- CSRF protection for POST requests
+- Production secret-key validation
+- Secure HTTP-only session cookies
+- PostgreSQL-backed production data storage
+- Application health monitoring through `/health`
 
-```text
-Build: pip install -r requirements.txt
-Start: gunicorn app:app --workers 1 --threads 4 --timeout 60
-Health check: /health
-```
+## 🎯 Project Goal
 
-See `DEPLOYMENT.md` for the complete deployment procedure.
+RideMate aims to make college transportation more accessible by helping students coordinate rides, reduce individual commuting expenses, and connect with fellow students.
 
-## Demo data
+**Built for students. Designed for smarter commuting.** 💙
 
-Optional:
-
-```bash
-python seed_demo.py
-```
-
-The demo accounts use password `demo123`. Do not use these credentials for a real production service.
-
-## Security
-
-- Production requires `SECRET_KEY`.
-- `.env` and local database files are ignored by Git.
-- Passwords are hashed.
-- POST requests require a CSRF token.
-- Production sessions use secure HTTP-only cookies.
-- Production data should be stored in PostgreSQL, not the Render local filesystem.
-
-## Important free-hosting note
-
-Render's free filesystem is ephemeral, so application data must not depend on local SQLite in production. RideMate uses PostgreSQL through `DATABASE_URL` when deployed.
+⭐ If you like this project, consider giving the repository a star!
