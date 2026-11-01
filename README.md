@@ -49,7 +49,7 @@ python app.py
 
 **4. Open in your browser**
 
-http://127.0.0.1:10000
+https://ridemate-2.onrender.com
 
 The application uses SQLite for local development when `DATABASE_URL` is not configured.
 
